@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE 2026 CS & IT Interactive Study Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   
+
+   
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tab-active {
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            border-bottom-color: transparent;
+            color: #6b7280;
+        }
+        .content-card {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        .content-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">GATE 2026 CS & IT Interactive Study Plan</h1>
+            <p class="mt-1 text-gray-600">Your roadmap to success, visualized.</p>
+        </div>
+      
+<!-- <header class="bg-white shadow-sm"> -->
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div>
+            
+            <p class="mt-1 text-gray-600">Your roadmap to success, from October 2025 to January 2026.</p>
+        </div>
+        <a href="daily_plan.html" class="bg-teal-500 text-white font-bold py-2 px-4 rounded-lg shadow hover:bg-teal-600 transition-colors">
+            View First Week Plan
+        </a>
+    </div>
+<!-- </header> -->
+
+
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        
+        <section id="strategy" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-center">Core Strategy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <h3 class="font-bold text-lg mb-2">🎯 Consistency is Key</h3>
+                    <p class="text-gray-600">4-5 focused hours daily are more effective than cramming on weekends. Build a sustainable routine.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+                    <h3 class="font-bold text-lg mb-2">🔄 Learn, Practice, Revise</h3>
+                    <p class="text-gray-600">Follow this three-step cycle for every topic to ensure deep understanding and retention.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+                    <h3 class="font-bold text-lg mb-2">✍️ Short Notes</h3>
+                    <p class="text-gray-600">Maintain a concise notebook for formulas, key concepts, and mistakes for rapid, effective revisions.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <h3 class="font-bold text-lg mb-2">⏱️ Mock Tests</h3>
+                    <p class="text-gray-600">Dedicate the final month to mock tests to build speed, accuracy, and exam temperament.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="daily-routine" class="mb-12 bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center">Suggested Daily Routine (6 Hours)</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="chart-container md:w-1/3 max-w-xs h-64">
+                    <canvas id="dailyRoutineChart"></canvas>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800">Morning Session (2.5 hrs)</h4>
+                        <p class="text-sm text-blue-700">Focus on conceptual learning from textbooks or lectures.</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800">Afternoon Session (2 hrs)</h4>
+                        <p class="text-sm text-green-700">Solve practice problems and previous year's questions (PYQs).</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg col-span-1 sm:col-span-2">
+                        <h4 class="font-semibold text-yellow-800">Evening Session (1.5 hrs)</h4>
+                        <p class="text-sm text-yellow-700">Revise the previous day's topics (60 mins) and practice Engineering Math & Aptitude (30 mins).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-center">Interactive Study Roadmap</h2>
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="w-full lg:w-2/3">
+                        <div class="border-b border-gray-200 mb-6">
+                            <nav class="-mb-px flex space-x-4 overflow-x-auto" aria-label="Tabs">
+                                <button data-month="oct" class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm tab-active">Oct 2025</button>
+                                <button data-month="nov" class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm tab-inactive">Nov 2025</button>
+                                <button data-month="dec" class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm tab-inactive">Dec 2025</button>
+                                <button data-month="jan" class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm tab-inactive">Jan 2026</button>
+                            </nav>
+                        </div>
+                        <div id="plan-content">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-lg">
+                         <h3 class="text-lg font-semibold mb-4 text-center">Syllabus Coverage Progress</h3>
+                        <div class="chart-container max-w-xs h-64">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                         <p class="text-sm text-gray-500 mt-4 text-center">This chart updates based on the selected month, showing your cumulative progress through the syllabus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="subject-focus" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-center">Subject Focus Distribution</h2>
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                <p class="text-center text-gray-600 mb-6">This chart illustrates the time allocation in weeks for major subject groups across your study plan. Use this to understand which areas have a higher time commitment.</p>
+                <div class="chart-container h-96 max-w-4xl">
+                    <canvas id="subjectFocusChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    
+    <footer class="bg-white mt-12 py-4">
+        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
+            <p>This interactive plan was generated to help you succeed in GATE 2026. Stay focused and good luck!</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const studyPlanData = {
+                oct: {
+                    phase: 'Phase 1: Building the Foundation',
+                    progress: 25,
+                    weeks: [
+                        { 
+                            title: 'Week 1-2',
+                            subjects: 'Programming in C, Discrete Mathematics',
+                            goal: 'Strengthen C programming skills and build a strong foundation in discrete math (Logic, Sets, Relations, Graph Theory), crucial for many other subjects.'
+                        },
+                        { 
+                            title: 'Week 3-4',
+                            subjects: 'Digital Logic, Linear Algebra',
+                            goal: 'Cover Boolean algebra, combinational/sequential circuits, and matrix algebra. Start basic data structures like Arrays, Stacks, and Queues.'
+                        }
+                    ]
+                },
+                nov: {
+                    phase: 'Phase 2: Core Computer Science',
+                    progress: 50,
+                    weeks: [
+                        { 
+                            title: 'Week 1-2',
+                            subjects: 'Computer Organization & Architecture (COA), Data Structures',
+                            goal: 'Understand the hardware-software interface, memory hierarchy, and advanced data structures like Linked Lists, Trees, and Heaps.'
+                        },
+                        { 
+                            title: 'Week 3-4',
+                            subjects: 'Algorithms',
+                            goal: 'Cover searching, sorting, hashing, complexity analysis, and algorithm design techniques (Greedy, DP, Divide & Conquer).'
+                        }
+                    ]
+                },
+                dec: {
+                    phase: 'Phase 3: Systems & Theory',
+                    progress: 75,
+                    weeks: [
+                        { 
+                            title: 'Week 1-2',
+                            subjects: 'Operating Systems (OS), Databases (DBMS)',
+                            goal: 'Cover processes, threads, synchronization, memory management, ER-model, relational algebra, and SQL.'
+                        },
+                        { 
+                            title: 'Week 3-4',
+                            subjects: 'Theory of Computation (TOC), DBMS Continued',
+                            goal: 'Master automata theory and grammars while completing advanced DBMS concepts like Normalization and Transactions.'
+                        }
+                    ]
+                },
+                jan: {
+                    phase: 'Phase 4: Final Subjects & Revision',
+                    progress: 100,
+                    weeks: [
+                        { 
+                            title: 'Week 1',
+                            subjects: 'Computer Networks (CN)',
+                            goal: 'Cover the OSI & TCP/IP models, routing protocols, and application layer protocols.'
+                        },
+                        { 
+                            title: 'Week 2',
+                            subjects: 'Compiler Design',
+                            goal: 'Understand lexical analysis, parsing, and code optimization.'
+                        },
+                        {
+                            title: 'Week 3-4',
+                            subjects: 'Full-Length Mock Tests & Final Revision',
+                            goal: 'Take a mock test every 2 days. Analyze performance, identify weak areas, and revise from short notes. This is crucial for building exam temperament.'
+                        }
+                    ]
+                }
+            };
+            
+            const tabs = document.querySelectorAll('[data-month]');
+            const contentContainer = document.getElementById('plan-content');
+            let progressChart, dailyRoutineChart, subjectFocusChart;
+
+            function renderContent(month) {
+                const data = studyPlanData[month];
+                let contentHtml = `<div class="content-card">
+                    <h3 class="text-xl font-bold text-blue-600 mb-4">${data.phase}</h3>`;
+                
+                data.weeks.forEach(week => {
+                    contentHtml += `<div class="mb-6 last:mb-0 bg-gray-50 p-4 rounded-lg border">
+                        <h4 class="font-semibold text-gray-800">${week.title}: <span class="font-normal">${week.subjects}</span></h4>
+                        <p class="mt-2 text-sm text-gray-600">${week.goal}</p>
+                    </div>`;
+                });
+                
+                contentHtml += `</div>`;
+                contentContainer.innerHTML = contentHtml;
+                
+                setTimeout(() => {
+                     contentContainer.querySelector('.content-card').classList.add('visible');
+                }, 50);
+            }
+
+            function updateProgressChart(progress) {
+                progressChart.data.datasets[0].data = [progress, 100 - progress];
+                progressChart.options.plugins.title.text = `${progress}% Complete`;
+                progressChart.update();
+            }
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const month = tab.dataset.month;
+                    
+                    tabs.forEach(t => {
+                        t.classList.remove('tab-active');
+                        t.classList.add('tab-inactive');
+                    });
+                    
+                    tab.classList.add('tab-active');
+                    tab.classList.remove('tab-inactive');
+                    
+                    renderContent(month);
+                    updateProgressChart(studyPlanData[month].progress);
+                });
+            });
+
+            function createCharts() {
+                const progressCtx = document.getElementById('progressChart').getContext('2d');
+                progressChart = new Chart(progressCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Covered', 'Remaining'],
+                        datasets: [{
+                            data: [0, 100],
+                            backgroundColor: ['#3b82f6', '#e5e7eb'],
+                            borderColor: ['#ffffff', '#ffffff'],
+                            borderWidth: 4,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: '0% Complete',
+                                position: 'bottom',
+                                font: { size: 16, weight: 'bold' },
+                                padding: { top: 10 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                const dailyRoutineCtx = document.getElementById('dailyRoutineChart').getContext('2d');
+                dailyRoutineChart = new Chart(dailyRoutineCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Conceptual Learning (2.5h)', 'Problem Solving (2h)', 'Revision & Core Skills (1.5h)'],
+                        datasets: [{
+                            data: [2.5, 2, 1.5],
+                            backgroundColor: ['#60a5fa', '#4ade80', '#facc15'],
+                             hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 12,
+                                    font: { size: 10 }
+                                }
+                            },
+                             tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + ' hours';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                const subjectFocusCtx = document.getElementById('subjectFocusChart').getContext('2d');
+                subjectFocusChart = new Chart(subjectFocusCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Programming & Data Structures', 'Math & Logic', 'Core Systems (COA, OS)', 'Algorithms & Theory', 'Applications (DBMS, CN, Compilers)'],
+                        datasets: [{
+                            label: 'Weeks Allocated',
+                            data: [4, 4, 4, 4, 5],
+                            backgroundColor: [
+                                'rgba(59, 130, 246, 0.7)',
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(239, 68, 68, 0.7)',
+                                'rgba(245, 158, 11, 0.7)',
+                                'rgba(139, 92, 246, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgb(59, 130, 246)',
+                                'rgb(16, 185, 129)',
+                                'rgb(239, 68, 68)',
+                                'rgb(245, 158, 11)',
+                                'rgb(139, 92, 246)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Weeks'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+            
+            createCharts();
+            document.querySelector('[data-month="oct"]').click();
+        });
+    </script>
+</body>
+</html>
